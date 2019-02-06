@@ -10,7 +10,9 @@ new_data = pd.read_csv("temp.csv")
 data = pd.read_csv("new_data.csv")
 print(new_data.head())
 print("=======================")
+counter = 0
 for i in range(len(new_data['FROM'])):
     print(new_data['FROM'][i], new_data['TO'][i])
     s = data.loc[(data['FROM'] == new_data['FROM'][i]) & (data['TO'] == new_data['TO'][i])]
-    s.to_csv("dataset/data" + str("-") + str(new_data['FROM'][i]) + str("-")+ str(new_data['TO'][i])+".csv", index=False)
+    s.to_csv("dataset/data" + str(counter)+".csv", index=False)
+    counter += 1
